@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selvam S | Portfolio</title>
+  <link rel="shortcut icon" href="./images/favicon-portfolio.png" type="image/x-icon">
+
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Roboto Slab', serif;
+    }
+
+    /* ✅ Animated gradient for hero section */
+    .section-1 {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 10px 10px;
+      background: linear-gradient(132deg, #000000, #0b142e, #0000ff, #e60073, #ff0000, #ffffff);
+      background-size: 400% 400%;
+      animation: BackgroundGradient 15s ease infinite;
+    }
+
+    @keyframes BackgroundGradient {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Navbar */
+    #navbar {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 10px 15px;
+      transition: all 0.4s ease;
+    }
+
+    #nav-logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #000;
+      text-transform: uppercase;
+    }
+
+    .nav-custom-link {
+      font-weight: bold;
+      color: #000 !important;
+      text-transform: uppercase;
+      margin: 0 10px;
+    }
+
+    .nav-custom-link:hover {
+      color: #fff !important;
+      background: #000;
+      border-radius: 5px;
+      padding: 5px 10px;
+    }
+
+    /* Hero Section */
+    .hero-flex {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+
+    .image-frame {
+      width: 500px;
+      height: 550px;
+      border-radius: 3px;
+      border: 5px solid #ffffff;
+      background-size: cover;
+      background-position: center;
+      flex-shrink: 0;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-info {
+      text-align: left;
+    }
+
+    .hero-info h1 {
+      font-size: 62px;
+      font-weight: bold;
+      color: #ffffff;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-info h4 {
+      font-size: 38px;
+      color: #ffffff;
+      margin-top: 10px;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    /* ✅ About Me Paragraph */
+    #about-me p {
+      font-size: 32px;
+      line-height: 1.8;
+      color: #333;
+    }
+
+    /* Skills */
+    .skills-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .skills-flex .card {
+      flex: 1;
+      min-width: 250px;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      background: #ffffffcc;
+      transition: transform .3s, box-shadow .3s;
+    }
+
+    .skills-flex .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    }
+
+    .skill-icons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .skill-item-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s, color 0.3s;
+    }
+
+    .skill-item-icon i {
+      font-size: 40px;
+      margin-bottom: 8px;
+    }
+
+    .skill-item-icon:hover {
+      transform: scale(1.2);
+      color: #0073e6;
+    }
+
+    .soft-skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .soft-skills .skill-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 15px;
+      background: #f8f9fa;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      transition: transform .3s, box-shadow .3s;
+    }
+
+    .soft-skills .skill-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      background: #e3f2fd;
+    }
+
+    /* Portfolio */
+    .portfolio-card {
+      background: #fff;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform .3s;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .portfolio-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .portfolio-card h5 {
+      padding: 15px;
+    }
+
+    /* Publications & Internship */
+    #publications,
+    #internship {
+      background: linear-gradient(135deg, #e3f2fd, #e8eaf6);
+      border-radius: 10px;
+      padding: 40px;
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 15px;
+      background: #0073e6;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+
+    .download-btn:hover {
+      background: #2a8618;
+    }
+
+    /* Certifications */
+    .cert-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .cert-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      flex: 1;
+      min-width: 250px;
+      transition: transform .3s, box-shadow .3s;
+    }
+
+    .cert-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    }
+
+    .cert-card a {
+      margin-top: 10px;
+      display: inline-block;
+      padding: 8px 15px;
+      background: #0073e6;
+      color: #fff;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .cert-card a:hover {
+      background: #0d8618;
+    }
+
+    /* Achievements */
+    .achievements {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .achievement-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      border-radius: 8px;
+      background: #f1f8e9;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .achievement-item i {
+      font-size: 22px;
+      color: #087e0d;
+    }
+
+    /* Contact */
+    .section-7 {
+      background: url('istockphoto-990697728-612x612.jpg') center/cover fixed;
+      position: relative;
+      padding: 100px 0;
+      color: #fff;
+    }
+
+    .section-7::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .section-7 .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Footer */
+    footer {
+      background: #43fa9c;
+      color: #000000;
+      text-align: center;
+      padding: 30px 0;
+    }
+
+    footer a {
+      color: #000000;
+      margin: 5px 10px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav id="navbar" class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a id="nav-logo" class="navbar-brand" href="#">
+        <i class="fas fa-briefcase"></i> Portfolio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-custom-link nav-link" href="#about-me">About</a></li>
+          <li class="nav-item"><a class="nav-custom-link nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-custom-link nav-link" href="#portfolio">Projects</a></li>
+          <li class="nav-item"><a class="nav-custom-link nav-link" href="#publications">Publications</a></li>
+          <li class="nav-item"><a class="nav-custom-link nav-link" href="#internship">Internship</a></li>
+          <li class="nav-item"><a class="nav-custom-link nav-link" href="#internship">Certifications</a></li>
+          <li class="nav-item"><a class="nav-custom-link nav-link" href="#contact-section">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Hero -->
+  <section class="section-1">
+    <div class="hero-flex">
+
+      <!-- Left: Image -->
+      <div class="image-frame" style="background-image: url('Gemini_Generated_Image_spuhy2spuhy2spuh.png');"></div>
+
+      <!-- Right: Info -->
+      <div class="hero-info">
+        <h1>Selvam S</h1>
+        <h4>MCA Student | Full Stack Developer</h4>
+        <a href="resume.pdf" class="btn btn-dark mt-3" download>
+          <i class="fas fa-file-download"></i> Download Resume
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about-me" class="text-center py-5">
+    <div class="primary-heading"><h2><strong>About Me</strong></h2></div>
+    <p class="w-75 mx-auto">
+      I am a passionate MCA student with a strong interest in Web Development and a solid foundation in computer
+      science. I am a quick learner and team player with the ability to adapt to new challenges. My experience includes
+      hands-on projects, publications, and internships.
+    </p>
+  </section>
+
+  <div class="bold-line"></div>
+
+  <!-- Skills -->
+  <section id="skills" class="container py-5 bg-light">
+    <center>
+      <h2 class="section-title"><strong> Skills & Expertise</strong></h2>
+    </center><br>
+    <div class="d-flex justify-content-center gap-3 mb-4">
+      <button class="btn btn-primary btn-hover" data-bs-toggle="collapse" data-bs-target="#technicalSkills">Technical
+        Skills</button>
+      <button class="btn btn-success btn-hover" data-bs-toggle="collapse" data-bs-target="#softSkills">Soft
+        Skills</button>
+    </div>
+    <div class="skills-flex">
+      <div class="card collapse" id="technicalSkills">
+        <h4 class="text-center">Technical Skills</h4>
+        <div class="skill-icons mt-3">
+          <div class="skill-item-icon"><i class="fab fa-html5 text-danger"></i><span>HTML</span></div>
+          <div class="skill-item-icon"><i class="fab fa-css3-alt text-primary"></i><span>CSS</span></div>
+          <div class="skill-item-icon"><i class="fab fa-js text-warning"></i><span>JavaScript</span></div>
+          <div class="skill-item-icon"><i class="fas fa-stream text-info"></i><span>Streamlit</span></div>
+          <div class="skill-item-icon"><i class="fab fa-python text-success"></i><span>Python</span></div>
+        </div>
+      </div>
+      <div class="card collapse" id="softSkills">
+        <h4 class="text-center">Soft Skills</h4>
+        <div class="soft-skills mt-3">
+          <div class="skill-item"><i class="fas fa-comments"></i> Communication</div>
+          <div class="skill-item"><i class="fas fa-users"></i> Teamwork</div>
+          <div class="skill-item"><i class="fas fa-lightbulb"></i> Problem-Solving</div>
+          <div class="skill-item"><i class="fas fa-clock"></i> Time Management</div>
+          <div class="skill-item"><i class="fas fa-brain"></i> Critical Thinking</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="bold-line"></div>
+
+  <!-- Portfolio -->
+  <section id="portfolio" class="container py-5">
+    <h2 class="section-title">Projects</h2>
+    <div class="row g-4">
+
+      <div class="col-md-4">
+        <div class="portfolio-card text-center p-4">
+          <h5>Client Feedback System</h5>
+          <a href="Screenshot_20250911_225055 (1).jpg" class="download-btn" download>
+            <i class="fas fa-file-download"></i> Download Project
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="portfolio-card text-center p-4">
+          <h5>Internship Project Certificate</h5>
+          <a href="WhatsApp Image 2025-09-16 at 21.05.14_f310f683.jpg" class="download-btn" download>
+            <i class="fas fa-file-download"></i> Download Project
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="portfolio-card text-center p-4">
+          <h5>Full Stack Project</h5>
+          <a href="IMG_20250915_223459.jpg" class="download-btn" download>
+            <i class="fas fa-file-download"></i> Download Project
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="bold-line"></div>
+
+  <!-- Publications -->
+  <section id="publications" class="container my-5">
+    <h2 class="section-title">Publications</h2>
+    <div class="card p-4 shadow">
+      <h5>Smart and Explainable Credit Card Fraud Detection</h5>
+      <p>
+        <b>Journal:</b> Journal of IoT in SMAC <br>
+        <b>DOI:</b> 10.36548/jismac.2025.2.004
+      </p>
+      <a href="IMG_20250916_183457.jpg" class="download-btn" download>
+        <i class="fas fa-file-pdf"></i> Download Certificate
+      </a>
+    </div>
+  </section>
+
+  <div class="bold-line"></div>
+
+  <!-- Internship -->
+  <section id="internship" class="container my-5">
+    <h2 class="section-title">Internship</h2>
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="card p-4 shadow">
+          <h5>Web Development Intern</h5>
+          <p><b>Company:</b> AristosTech India Pvt Ltd
+            G.N. Chetty Road, T. Nagar,
+            Chennai – 600017
+            Contact: 044 3571 7665</p>
+          <p>This is to certify that Mr. Selvam. S, student of M.C.A Final Year from Dhanalakshmi Srinivasan University, has successfully completed an internship with AristosTech India Pvt Ltd for the Academic Project titled:
+            Client Feedback System. The internship duration was from 1st August 2024 to 31st August 2024.</p>
+          <a href="IMG-20240901-WA0020.jpg" class="download-btn" download>
+            <i class="fas fa-file-download"></i> Download Certificate
+          </a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card p-4 shadow">
+          <h5>Data Analyst Intern</h5>
+          <p><b>Company:</b>Bluez Infomatic Solutions,No: 129 Munier Complex
+            Swarnapuri, Salem – 636004
+            Contact: 9092290609</p>
+          <p>This is to certify that Mr. Selvam. S has successfully completed the internship program as a Data Analyst Intern at Bluez Infomatic Solutions for the Academic Project titled Comparative Analysis on Deep Learning Techniques for Credit Card Fraud Detection................</p>
+          <a href="IMG-20240808-WA0003.jpg" class="download-btn" download>
+            <i class="fas fa-file-download"></i> Download Certificate
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="bold-line"></div>
+
+  <!-- Certifications --> <section id="certifications" class="container py-5"> <h2 class="section-title">Certifications</h2> <div class="cert-grid"> <div class="cert-card"> <h5>Full Stack Development</h5> <a href="IMG_20250915_223459.jpg" download><i class="fas fa-file-download"></i> Download</a> </div> <div class="cert-card"> <h5>Artificial Intelligence</h5> <a href="Screenshot_20250912_215407 (1).jpg" download><i class="fas fa-file-download"></i> Download</a> </div> <div class="cert-card"> <h5>NPTEL IoT</h5> <a href="IMG_20250914_215843.jpg" download><i class="fas fa-file-download"></i> Download</a> </div> <div class="cert-card"> <h5>Bootcamp in (FSD)</h5> <a href="Screenshot_20250913_211213 (1).jpg" download><i class="fas fa-file-download"></i> Download</a> </div> <div class="cert-card"> <h5>Barclays lifeSkills Programme</h5> <a href="IMG_20250916_205117.jpg" download><i class="fas fa-file-download"></i> Download</a> </div> <div class="cert-card"> <h5>Participation in (TECH LINK & BRAIN BYTE)</h5> <a href="IMG_20250916_200150.jpg" download><i class="fas fa-file-download"></i> Download</a> </div> <div class="cert-card"> <h5>Paper Presentation</h5> <a href="IMG_20250916_200232.jpg" download><i class="fas fa-file-download"></i> Download</a> </div> <div class="cert-card"> <h5>Symposium (1st Prize)</h5> <a href="IMG_20250916_200122.jpg" download><i class="fas fa-file-download"></i> Download</a> </div> <div class="cert-card"> <h5>Paper Presentation on Conference</h5> <a href="IMG_20250916_195517.jpg" download><i class="fas fa-file-download"></i> Download</a> </div> <div class="cert-card"> <h5>Symposium (1st Prize)</h5> <a href="IMG_20250916_200308.jpg" download><i class="fas fa-file-download"></i> Download</a> </div> </div> </section> <div class="bold-line"></div>
+
+ <!-- Contact -->
+  <section id="contact-section" class="section-7 text-center">
+    <div class="container">
+      <div class="primary-heading"><h2>Contact <span class="primary-heading-bold">Me</h2></div>
+      <form action="mailto:your-email@example.com" method="post" enctype="text/plain" class="mx-auto mt-4"
+        style="max-width:600px;">
+        <input type="text" class="form-control mb-3" name="Name" placeholder="Your Name" required>
+        <input type="email" class="form-control mb-3" name="Email" placeholder="Your Email" required>
+        <textarea class="form-control mb-3" name="Message" rows="4" placeholder="Message"></textarea>
+        <button type="submit" class="btn btn-light">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; <span id="currentYear"></span> Selvam S. All Rights Reserved.</p>
+    <div>
+      <a href="https://www.linkedin.com/in/selvam-ss1821" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-github"></i></a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
